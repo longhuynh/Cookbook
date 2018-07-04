@@ -12,8 +12,6 @@ namespace Smartwebs.Cookbook.Migrations
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
-                        CreatedDate = c.DateTime(nullable: false),
-                        ModifiedDate = c.DateTime(),
                         Description = c.String(nullable: false, maxLength: 250),
                     })
                 .PrimaryKey(t => t.Id);
@@ -24,7 +22,6 @@ namespace Smartwebs.Cookbook.Migrations
                     {
                         Id = c.Long(nullable: false, identity: true),
                         RecipeId = c.Long(),
-                        ModifiedDate = c.DateTime(nullable: false),
                         Description = c.String(nullable: false, maxLength: 250),
                     })
                 .PrimaryKey(t => t.Id);

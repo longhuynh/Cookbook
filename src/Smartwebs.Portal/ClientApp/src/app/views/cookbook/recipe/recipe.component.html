@@ -1,0 +1,36 @@
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-5 col-lg-5">
+          <h3 class="card-title clearfix mb-0">Recipes</h3>
+        </div>
+        <div class="col-sm-7 col-lg-7">
+          <button class="btn btn-outline-primary float-right" (click)="refresh()"><i class="fa fa-refresh"></i>&nbsp;Refresh</button>
+          <button class="btn btn-outline-primary float-right mr-3" (click)="add()"><i class="fa fa-plus"></i>&nbsp;New</button>
+        </div>
+      </div>
+
+      <hr>
+
+      <ngx-datatable class="bootstrap"
+          [rows]="rows"
+          [columnMode]="'force'"
+          [headerHeight]="40"
+          [footerHeight]="40"
+          [limit]="5"
+          [rowHeight]="'auto'"
+          [reorderable]="reorderable">
+          <ngx-datatable-column name="Description" prop="description"></ngx-datatable-column>
+        <ngx-datatable-column name="Actions" sortable="false">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <button class="btn btn-sm btn-primary" (click)="edit(row)"><i class="fa fa-pencil"></i>&nbsp;Edit</button>&nbsp;
+            <button class="btn btn-sm btn-secondary" (click)="viewVersion(row)"><i class="fa fa-clone"></i>&nbsp;Versions</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(row)"><i class="fa fa-trash"></i>&nbsp;Delete</button>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+  </div>
+</div>
+

@@ -58,7 +58,7 @@ namespace Smartwebs.Cookbook.Service.Test.Recipes
         {
             // Arrange      
             var createdDateTestData = new DateTime(2017, 7, 3);
-            var recipeData = new Recipe { Id = 1, Description = "Description 1", CreatedDate = createdDateTestData };
+            var recipeData = new Recipe { Id = 1, Description = "Description 1"};
 
             var recipeRepository = A.Fake<IRepository<Recipe, long>>();
             A.CallTo(() => recipeRepository.Get(A<long>.Ignored)).Returns(recipeData);
@@ -78,8 +78,7 @@ namespace Smartwebs.Cookbook.Service.Test.Recipes
         public void CreateRecipeTest()
         {
             // Arrange        
-            var createdDateTestData = new DateTime(2017, 7, 4);
-            var recipeData = new Recipe { Id = 1, Description = "Description 1", CreatedDate = createdDateTestData };
+            var recipeData = new Recipe { Id = 1, Description = "Description 1" };
             var recipeVersionData = new RecipeVersion { Id = 1, RecipeId = null, Description = "Description 1" };
 
             int callCount = 0;
@@ -87,7 +86,6 @@ namespace Smartwebs.Cookbook.Service.Test.Recipes
             var recipeRepository = A.Fake<IRepository<Recipe, long>>();
             A.CallTo(() => recipeRepository.InsertAsync(A<Recipe>.Ignored)).Returns(recipeData);
             A.CallTo(() => recipeRepository.SaveChangeAsync()).Invokes(c => callCount++);
-
 
             var recipeVersionRepository = A.Fake<IRepository<RecipeVersion, long>>();
             A.CallTo(() => recipeVersionRepository.InsertAsync(A<RecipeVersion>.Ignored)).Returns(recipeVersionData);

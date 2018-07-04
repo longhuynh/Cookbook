@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{title}}</h4>
+  <button type="button" class="close" (click)="bsModalRef.hide()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form" class="form-horizontal">
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label">Description</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" formControlName="description">
+        <div *ngIf="form.controls.description.invalid && (form.controls.description.dirty || form.controls.description.touched)">
+          <em *ngIf="form.controls.description.errors.required" class="error invalid-feedback">Name is required</em>
+          <em *ngIf="form.controls.description.errors.maxlength" class="error invalid-feedback">Must be less then 250 characters long</em>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Close</button>
+  <button type="button" class="btn btn-info" (click)="save()" [ladda]="isSaving">Save</button>
+</div>

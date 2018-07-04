@@ -7,8 +7,5 @@ namespace Smartwebs.Cookbook.Domain.Recipes
     /// </summary>
     public class Recipe : RecipeBase
     {
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
-
-        public DateTime? ModifiedDate { get; set; }
     }
 }

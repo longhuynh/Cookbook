@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -62,7 +62,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     TabsModule.forRoot(),
     ToastrModule.forRoot({
       newestOnTop: true,
-      // preventDuplicates: true,
     }),
     LaddaModule,
     ChartsModule,

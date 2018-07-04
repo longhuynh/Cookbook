@@ -13,7 +13,7 @@ namespace Smartwebs.Cookbook.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201807041625255_Initial"; }
+            get { return "201807042212191_Initial"; }
         }
         
         string IMigrationMetadata.Source

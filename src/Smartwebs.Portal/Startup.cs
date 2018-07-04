@@ -89,7 +89,7 @@ namespace Smartwebs.Portal
                 };
 
                 //We can use Træfik for configuration
-                app.Map("/api/cookbook", api => api.RunProxy(new Uri("http://localhost:61738")));
+                app.Map("/api/cookbook", api => api.RunProxy(new Uri("http://localhost:63744")));
 
                 //app.MapWhen(
                 //    ctx => ctx.Request.Path.Value.StartsWith("/api/cookbook", StringComparison.InvariantCultureIgnoreCase),

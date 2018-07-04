@@ -15,9 +15,13 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
-      }
+      },
+      {
+        path: 'cookbook',
+        loadChildren: './views/cookbook/cookbook.module#CookbookModule'
+      },
     ]
-  }
+  }  
 ];
 
 @NgModule({

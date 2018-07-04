@@ -5,11 +5,15 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { LaddaModule } from 'angular2-ladda';
 
 import { SharedModule } from '../shared/shared.module';
-import { CookbookRoutingModule } from './recipe-routing.module';
+import { CookbookRoutingModule } from './cookbook-routing.module';
+import { RecipeService } from './recipe/recipe.service';
+
+import { RecipeComponent } from './recipe/recipe.component';
+import { RecipeModalComponent } from './recipe/recipe-modal.component';
+import { RecipeVersionsComponent } from './recipe/recipe-version.component';
 
 
 @NgModule({
@@ -23,15 +27,19 @@ import { CookbookRoutingModule } from './recipe-routing.module';
     NgxDatatableModule,
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
-    NgSelectModule,
     LaddaModule
   ],
   providers: [
-    
+    RecipeService
   ],
-  entryComponents: [],
+  entryComponents: [
+    RecipeModalComponent,
+    RecipeVersionsComponent
+  ],
   declarations: [
-   
+    RecipeComponent,
+    RecipeModalComponent,
+    RecipeVersionsComponent
   ]
 })
-export class CompanyModule { }
+export class CookbookModule { }

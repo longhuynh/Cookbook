@@ -20,6 +20,11 @@ namespace Smartwebs.Cookbook.Ef.Repositories
         /// </summary>
         private readonly CookbookDbContext _dbContext;
 
+         /// <summary>
+        ///     Gets DbSet for given entity.
+        /// </summary>
+        public virtual DbSet<TEntity> Table => _dbContext.Set<TEntity>();
+
         public EfRepositoryBase(CookbookDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -27,12 +32,12 @@ namespace Smartwebs.Cookbook.Ef.Repositories
      
         public override IQueryable<TEntity> GetAll()
         {
-            return _dbContext.Set<TEntity>().AsQueryable(); 
+            return Table;
         }
 
         public override TEntity Insert(TEntity entity)
         {
-            return _dbContext.Set<TEntity>().Add(entity);
+            return Table.Add(entity);
         }
 
         public override Task<TEntity> InsertAsync(TEntity entity)
@@ -53,22 +58,17 @@ namespace Smartwebs.Cookbook.Ef.Repositories
             _dbContext.Entry(entity).State = EntityState.Modified;
             return Task.FromResult(entity);
         }
-
         protected virtual void AttachIfNot(TEntity entity)
         {
-            var entry = _dbContext.ChangeTracker.Entries().FirstOrDefault(ent => ent.Entity == entity);
-            if (entry != null)
+            if (!Table.Local.Contains(entity))
             {
-                return;
+                Table.Attach(entity);
             }
-
-            _dbContext.Set<TEntity>().Attach(entity);
         }
      
-        public override Task SaveChangeAsync()
+        public override async Task SaveChangeAsync()
         {
-            _dbContext.SaveChangesAsync();
-            return Task.FromResult(0);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

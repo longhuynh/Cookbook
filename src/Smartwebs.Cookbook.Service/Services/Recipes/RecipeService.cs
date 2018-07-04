@@ -54,14 +54,14 @@ namespace Smartwebs.Cookbook.Services.Recipes
 
         public async Task<RecipeDto> Update(UpdateRecipeInput input)
         {
-            var recipe = _recipeRepository.FirstOrDefault(x => x.Id == input.Id);
+            var recipe = _recipeRepository.Get(input.Id);
 
             if(recipe != null)
             {
                 await MakeVersion(recipe, recipe.Id);
 
-                recipe = Mapper.Map<Recipe>(input);
-                await _recipeRepository.UpdateAsync(recipe);
+                var mapped = Mapper.Map(input, recipe);
+                await _recipeRepository.UpdateAsync(mapped);
                 await _recipeRepository.SaveChangeAsync();
             }
 

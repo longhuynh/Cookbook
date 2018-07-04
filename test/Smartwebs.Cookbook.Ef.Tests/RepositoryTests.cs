@@ -21,11 +21,9 @@ namespace Smartwebs.Cookbook.Tests
         public void ShouldGetAllInitialRecipes()
         {
             // Create test data
-            var createdDateTestData = new DateTime(2017, 7, 3);
-
             var testData = new List<Recipe>
             {
-                new Recipe {Id = 1, Description = "Description 1", CreatedDate = createdDateTestData},
+                new Recipe {Id = 1, Description = "Description 1"},
                 new Recipe {Id = 2, Description = "Description 2"},
                 new Recipe {Id = 3, Description = "Description 3"},
                 new Recipe {Id = 4, Description = "Description 4"}
@@ -41,8 +39,6 @@ namespace Smartwebs.Cookbook.Tests
             Assert.Equal(1, recipes.First().Id);
 
             Assert.Equal("Description 1", recipes.First().Description);
-            Assert.Equal(createdDateTestData, recipes.First().CreatedDate);
-            Assert.Null(recipes.First().ModifiedDate);
         }
 
         [Fact]
@@ -69,8 +65,7 @@ namespace Smartwebs.Cookbook.Tests
         public void ShouldInsertRecipe()
         {
             // Create test data
-            var createdDateTestData = new DateTime(2017, 7, 3);
-            var testData = new Recipe {Id = 1, Description = "Description 1", CreatedDate = createdDateTestData};
+            var testData = new Recipe {Id = 1, Description = "Description 1"};
 
             A.CallTo(() => _recipeRepository.InsertAsync(A<Recipe>.Ignored)).Returns(testData);
 

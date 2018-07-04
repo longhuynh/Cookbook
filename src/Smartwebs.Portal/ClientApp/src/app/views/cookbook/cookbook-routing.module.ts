@@ -1,17 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RecipeComponent } from './recipe/recipe.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'cookbook', pathMatch: 'full' },
-  //{ path: 'cookbook', component: CookbookComponent, data: { title: 'Cookbook' } },
-  {
-    path: 'users',
-    //component: ,
-    data: {
-      title: 'Recipe'
-    }
-  }
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+  { path: 'recipes', component: RecipeComponent, data: { title: 'Recipes' } }
 
 ];
 

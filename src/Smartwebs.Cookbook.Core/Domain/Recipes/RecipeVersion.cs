@@ -8,7 +8,5 @@ namespace Smartwebs.Cookbook.Domain.Recipes
     public class RecipeVersion : RecipeBase
     {
         public long? RecipeId { get; set; }
-
-        public DateTime ModifiedDate { get; set; } = DateTime.Now;
     }
 }

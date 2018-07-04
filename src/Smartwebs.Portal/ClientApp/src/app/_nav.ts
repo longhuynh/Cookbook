@@ -10,15 +10,14 @@ export const navItems = [
   },
   {
     name: 'Recipes',
-    url: '',
+    url: '/cookbook',
     icon: 'icon-layers'
   },
   {
     divider: true
   },
   {
-    title: true,
- 
+    title: true, 
     name: 'Services'
   },
   {
