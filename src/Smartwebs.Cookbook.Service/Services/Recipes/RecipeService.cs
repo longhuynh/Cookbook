@@ -44,9 +44,9 @@ namespace Smartwebs.Cookbook.Services.Recipes
             ));
         }
 
-        public RecipeDto Get(int id)
+        public RecipeDto Get(long id)
         {
-            var result = _recipeRepository.FirstOrDefault(x => x.Id == id);
+            var result = _recipeRepository.Get(id);
 
             return Mapper.Map<RecipeDto>(result);
         }

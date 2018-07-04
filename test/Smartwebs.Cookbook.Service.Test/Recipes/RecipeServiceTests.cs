@@ -54,10 +54,31 @@ namespace Smartwebs.Cookbook.Service.Test.Recipes
         }
 
         [Fact]
+        public void GetResturnExpected()
+        {
+            // Arrange      
+            var createdDateTestData = new DateTime(2017, 7, 3);
+            var recipeData = new Recipe { Id = 1, Description = "Description 1", CreatedDate = createdDateTestData };
+
+            var recipeRepository = A.Fake<IRepository<Recipe, long>>();
+            A.CallTo(() => recipeRepository.Get(A<long>.Ignored)).Returns(recipeData);
+
+            var recipeVersionRepository = A.Fake<IRepository<RecipeVersion, long>>();
+
+            var service = new RecipeService(recipeRepository, recipeVersionRepository);
+
+            // Act
+            var resultDto = service.Get(1);
+
+            // Assert
+            Assert.Equal(1, resultDto.Id);
+        }
+
+        [Fact]
         public void CreateRecipeTest()
         {
             // Arrange        
-            var createdDateTestData = new DateTime(2017, 7, 3);
+            var createdDateTestData = new DateTime(2017, 7, 4);
             var recipeData = new Recipe { Id = 1, Description = "Description 1", CreatedDate = createdDateTestData };
             var recipeVersionData = new RecipeVersion { Id = 1, RecipeId = null, Description = "Description 1" };
 

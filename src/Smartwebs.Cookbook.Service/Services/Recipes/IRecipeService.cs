@@ -10,7 +10,7 @@ namespace Smartwebs.Cookbook.Services.Recipes
 
         Task<ListResultDto<RecipeDto>> GetVersions(long id);
 
-        RecipeDto Get(int id);
+        RecipeDto Get(long id);
 
         Task<RecipeDto> Create(CreateRecipeInput input);
 
