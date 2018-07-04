@@ -3,14 +3,14 @@ using Smartwebs.Cookbook.Domain.Recipes;
 
 namespace Smartwebs.Cookbook.Ef
 {
-    public class SmartwebsDbContext : DbContext
+    public class CookbookDbContext : DbContext
     {
-        public SmartwebsDbContext()
+        public CookbookDbContext() : base ("CookbookDbContext")
         {
             
         }
 
-        public SmartwebsDbContext(string connectionString) : base(connectionString)
+        public CookbookDbContext(string connectionString) : base(connectionString)
         {
             
         }

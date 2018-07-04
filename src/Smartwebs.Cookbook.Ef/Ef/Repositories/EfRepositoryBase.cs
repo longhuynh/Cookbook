@@ -11,16 +11,16 @@ namespace Smartwebs.Cookbook.Ef.Repositories
     /// </summary>
     /// <typeparam name="TEntity">Type of the Entity for this repository</typeparam>
     /// <typeparam name="TPrimaryKey">Primary key of the entity</typeparam>
-    public class EfRepositoryBaseOfTEntityAndTPrimaryKey<TEntity, TPrimaryKey> :
+    public class EfRepositoryBase<TEntity, TPrimaryKey> :
         RepositoryBase<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
         /// <summary>
         ///     Gets EF DbContext object.
         /// </summary>
-        private readonly SmartwebsDbContext _dbContext;
+        private readonly CookbookDbContext _dbContext;
 
-        public EfRepositoryBaseOfTEntityAndTPrimaryKey(SmartwebsDbContext dbContext)
+        public EfRepositoryBase(CookbookDbContext dbContext)
         {
             _dbContext = dbContext;
         }

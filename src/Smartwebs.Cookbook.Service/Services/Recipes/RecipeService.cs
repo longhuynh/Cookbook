@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Smartwebs.Cookbook.Domain.Recipes;
+using Smartwebs.Cookbook.Ef;
 using Smartwebs.Cookbook.Services.Recipes.Dtos;
 using Smartwebs.Domain.Dtos;
 using Smartwebs.Domain.Repositories;
@@ -70,7 +71,7 @@ namespace Smartwebs.Cookbook.Services.Recipes
         public async Task<RecipeDto> Create(CreateRecipeInput input)
         {
             var recipe = Mapper.Map<Recipe>(input);
-            await _recipeRepository.InsertAsync(recipe);
+            recipe = await _recipeRepository.InsertAsync(recipe);
             await _recipeRepository.SaveChangeAsync();
 
             await MakeVersion(recipe, null);

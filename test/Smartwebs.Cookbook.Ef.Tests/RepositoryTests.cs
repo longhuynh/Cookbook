@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Linq;
-using System.Threading.Tasks;
 using FakeItEasy;
 using Smartwebs.Cookbook.Domain.Recipes;
-using Smartwebs.Domain.Repositories;
+using Smartwebs.Cookbook.Ef.Repositories;
 using Xunit;
 
 namespace Smartwebs.Cookbook.Tests
 {
     public class RepositoryTests
     {
-        private readonly IRepository<Recipe, long> _recipeRepository;
+        private readonly EfRepositoryBase<Recipe, long> _recipeRepository;
 
         public RepositoryTests()
         {
-            _recipeRepository = A.Fake<IRepository<Recipe, long>>();
+            _recipeRepository = A.Fake<EfRepositoryBase<Recipe, long>>();
         }
 
         [Fact]
@@ -53,7 +51,9 @@ namespace Smartwebs.Cookbook.Tests
             var testData = new List<Recipe>
             {
                 new Recipe {Id = 1, Description = "Description 1"},
-                new Recipe {Id = 2, Description = "Description 2"}
+                new Recipe {Id = 2, Description = "Description 2"},
+                new Recipe {Id = 3, Description = "Description 3"},
+                new Recipe {Id = 4, Description = "Description 4"}
             };
 
             A.CallTo(() => _recipeRepository.GetAllList()).Returns(testData);
@@ -62,7 +62,7 @@ namespace Smartwebs.Cookbook.Tests
             var recipes = _recipeRepository.GetAllList();
 
             // Assert
-            Assert.Equal(2, recipes.Count);
+            Assert.Equal(4, recipes.Count);
         }
 
         [Fact]
@@ -73,13 +73,12 @@ namespace Smartwebs.Cookbook.Tests
             var testData = new Recipe {Id = 1, Description = "Description 1", CreatedDate = createdDateTestData};
 
             A.CallTo(() => _recipeRepository.InsertAsync(A<Recipe>.Ignored)).Returns(testData);
-          
 
             // Act
             var recipe = _recipeRepository.InsertAsync(new Recipe()).Result;
 
             // Assert
-            Assert.Equal(recipe.Id, testData.Id);
+            Assert.Equal(1, recipe.Id);
         }
 
         [Fact]

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smartwebs.Cookbook.Ef.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smartwebs.Tests", "..\test\Smartwebs.Tests\Smartwebs.Tests.csproj", "{CFE35C00-9189-4C31-BD8D-233614AED8B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smartwebs.Cookbook.Service.Test", "..\test\Smartwebs.Cookbook.Service.Test\Smartwebs.Cookbook.Service.Test.csproj", "{2CC9ADCA-918B-4D1E-9424-28A092C65F73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{CFE35C00-9189-4C31-BD8D-233614AED8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFE35C00-9189-4C31-BD8D-233614AED8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFE35C00-9189-4C31-BD8D-233614AED8B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC9ADCA-918B-4D1E-9424-28A092C65F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC9ADCA-918B-4D1E-9424-28A092C65F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC9ADCA-918B-4D1E-9424-28A092C65F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC9ADCA-918B-4D1E-9424-28A092C65F73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A34D7B9F-0AB3-4F0E-B75D-22C03EE58CB1} = {77BADA4B-2C60-4791-8363-572A11FBF59A}
 		{CFE35C00-9189-4C31-BD8D-233614AED8B4} = {77BADA4B-2C60-4791-8363-572A11FBF59A}
+		{2CC9ADCA-918B-4D1E-9424-28A092C65F73} = {77BADA4B-2C60-4791-8363-572A11FBF59A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E06C1CB-D841-426B-A343-8F353BEC6198}

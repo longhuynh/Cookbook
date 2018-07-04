@@ -47,10 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201807041625255_Initial.cs" />
+    <Compile Include="Migrations\201807041625255_Initial.Designer.cs">
+      <DependentUpon>201807041625255_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ef\Repositories\EfRepositoryBaseOfTEntity.cs" />
-    <Compile Include="Ef\Repositories\EfRepositoryBaseOfTEntityAndTPrimaryKey.cs" />
-    <Compile Include="Ef\SmartwebsDbContext.cs" />
+    <Compile Include="Ef\Repositories\EfRepositoryBase.cs" />
+    <Compile Include="Ef\CookbookDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Smartwebs.Cookbook.Core\Smartwebs.Cookbook.Core.csproj">
@@ -63,7 +68,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807041625255_Initial.resx">
+      <DependentUpon>201807041625255_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

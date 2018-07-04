@@ -8,6 +8,8 @@ namespace Smartwebs.Cookbook.Services.Recipes.MapperProfiles
     {
         public RecipeMapperProfile()
         {
+            CreateMap<Recipe, RecipeVersion>();
+
             CreateMap<Recipe, RecipeDto>();
             CreateMap<CreateRecipeInput, Recipe>();
             CreateMap<UpdateRecipeInput, Recipe>();

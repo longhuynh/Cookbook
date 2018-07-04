@@ -3,11 +3,11 @@ using Smartwebs.Domain.Repositories;
 
 namespace Smartwebs.Cookbook.Ef.Repositories
 {
-    public class EfRepositoryBase<TEntity> : EfRepositoryBaseOfTEntityAndTPrimaryKey<TEntity, int>,
+    public class EfRepositoryBase<TEntity> : EfRepositoryBase<TEntity, int>,
         IRepository<TEntity>
         where TEntity : class, IEntity<int>
     {
-        public EfRepositoryBase(SmartwebsDbContext dbContext) : base(dbContext)
+        public EfRepositoryBase(CookbookDbContext dbContext) : base(dbContext)
         {
         }
     }

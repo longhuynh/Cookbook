@@ -23,12 +23,12 @@ namespace Smartwebs.Cookbook
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddScoped(_ => new SmartwebsDbContext(Configuration.GetConnectionString("Default")));
+            services.AddScoped(_ => new CookbookDbContext(Configuration.GetConnectionString("Default")));
 
             services.AddAutoMapper();
 
             services.AddScoped(typeof(IRepository<>), typeof(EfRepositoryBase<>));
-            services.AddScoped(typeof(IRepository<,>), typeof(EfRepositoryBaseOfTEntityAndTPrimaryKey<,>));
+            services.AddScoped(typeof(IRepository<,>), typeof(EfRepositoryBase<,>));
 
             services.AddTransient<IRecipeService, RecipeService>();
         }

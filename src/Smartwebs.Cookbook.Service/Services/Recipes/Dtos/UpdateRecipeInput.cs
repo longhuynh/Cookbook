@@ -7,6 +7,7 @@ namespace Smartwebs.Cookbook.Services.Recipes.Dtos
     public class UpdateRecipeInput : Entity<long>
     {
         [StringLength(RecipeBase.MaxDescriptionLength)]
+        [Required]
         public string Description { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace Smartwebs.Cookbook.Domain.Recipes
         public const int MaxDescriptionLength = 250;
 
         [MaxLength(MaxDescriptionLength)]
+        [Required]
         public virtual string Description { get; set; }
     }
 }
