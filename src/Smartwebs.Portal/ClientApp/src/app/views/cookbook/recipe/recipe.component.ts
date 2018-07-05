@@ -18,7 +18,7 @@ export class RecipeComponent implements OnInit {
   bsModalRef: BsModalRef;
 
   constructor(private modalService: BsModalService,
-    private service: RecipeService,
+    private recipeService: RecipeService,
     private confirmation: ConfirmationDialogService,
     private toastr: ToastrService) {
   }
@@ -48,7 +48,7 @@ export class RecipeComponent implements OnInit {
   }
 
   viewVersion(recipe) {
-    this.service.getRecipeVersions(recipe.id).subscribe(resp => {
+    this.recipeService.getRecipeVersions(recipe.id).subscribe(resp => {
       const initialState = { rows: resp.items };
       this.bsModalRef = this.modalService.show(RecipeVersionsComponent, { initialState });
     });  
@@ -65,7 +65,7 @@ export class RecipeComponent implements OnInit {
   }
 
   refresh() {
-    this.service.getRecipes().subscribe(resp => {
+    this.recipeService.getRecipes().subscribe(resp => {
       this.rows = resp.items;
     });
   }
