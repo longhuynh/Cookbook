@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Shouldly;
 using Smartwebs.Cookbook.Domain.Recipes;
 using Smartwebs.Cookbook.Service.Test.Dtos;

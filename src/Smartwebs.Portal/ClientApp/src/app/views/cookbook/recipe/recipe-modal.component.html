@@ -11,7 +11,7 @@
       <div class="col-md-9">
         <input type="text" class="form-control" formControlName="description">
         <div *ngIf="form.controls.description.invalid && (form.controls.description.dirty || form.controls.description.touched)">
-          <em *ngIf="form.controls.description.errors.required" class="error invalid-feedback">Name is required</em>
+          <em *ngIf="form.controls.description.errors.required" class="error invalid-feedback">Description is required</em>
           <em *ngIf="form.controls.description.errors.maxlength" class="error invalid-feedback">Must be less then 250 characters long</em>
         </div>
       </div>
